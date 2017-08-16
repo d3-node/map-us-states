@@ -1,5 +1,6 @@
 {
   "name": "@d3-node/map-us-states",
+  "private": false,
   "version": "0.0.1",
   "description": "D3-Node US States map with geocoded circles",
   "main": "index.js",
