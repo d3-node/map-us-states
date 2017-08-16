@@ -1,0 +1,31 @@
+{
+  "name": "d3node-map-us-states",
+  "version": "0.0.1",
+  "description": "D3-Node US States map with geocoded circles",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d3-node/d3node-map-us-states.git"
+  },
+  "keywords": [
+    "d3",
+    "node"
+  ],
+  "author": "Brad Oyler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/d3-node/d3node-map-us-states/issues"
+  },
+  "homepage": "https://github.com/d3-node/d3node-map-us-states#readme",
+  "devDependencies": {
+    "d3node-output": "0.0.9",
+    "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "d3-node": "^1.1.0",
+    "topojson": "^3.0.0"
+  }
+}
