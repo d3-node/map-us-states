@@ -6,13 +6,13 @@ of geocoded circles with radius representing a datapoint
 
 ## Install
 ```bash
-$ npm install d3node-map-us-states
+$ npm install @d3-node/map-us-states --save
 ```
 
 ## Usage
 
 ```js
-const d3nMap = require('d3node-map-us-states')
+const d3nMap = require('@d3-node/map-us-states')
 // get CSV string
 const geoCSV = fs.readFileSync('./locations.csv').toString()
 
