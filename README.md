@@ -1,6 +1,6 @@
 ## Map of US States :earth_americas:
 
-of geocoded circles with radius representing a datapoint
+geocoded markers (via CSV) with radius representing a datapoint
 
 ![map](./test/output.png)
 
@@ -13,25 +13,28 @@ $ npm install @d3-node/map-us-states --save
 
 ```js
 const d3nMap = require('@d3-node/map-us-states')
-// get CSV string
-const geoCSV = fs.readFileSync('./locations.csv').toString()
+
+// read CSV -> parse to json
+const csv = fs.readFileSync('./markers.csv').toString()
+const markers = d3nMap.csvParse(csv)
 
 // calculate size of circle
 const radius = function (d) {
   return d.POP_2010 / 150000
 }
 
-const map = d3nMap({ geoCSV, radius })
+const map = d3nMap({ markers, radius })
 map.svgString() // returns <svg>
 ```
 
 See [test](./test/index.js) for actual usage.
 
-##### Output the example map to an image
+##### Output the test map to an image (PNG)
 ```
 npm test
 ```
 
 ## API
 
-#### Options `{ geoCSV, [radius, fill, styles] }`
+#### Options 
+`{ markers, [ radius, fill, styles ] }`

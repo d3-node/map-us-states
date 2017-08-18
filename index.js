@@ -23,14 +23,12 @@ const defaultFill = function (d) {
   return colorScale(d.POP_2010 / 150000)
 }
 
-function statesMap ({ geoCSV, radius = defaultRadius, fill = defaultFill, styles = defaultStyles } = {}) {
+function statesMap ({ markers, radius = defaultRadius, fill = defaultFill, styles = defaultStyles } = {}) {
   const d3n = new D3Node({ styles })
-  const d3 = d3n.d3
-  const citiesData = d3.csvParse(geoCSV)
   const projection = d3.geoAlbersUsa()
   const path = d3.geoPath().projection(projection)
 
-  const cities = citiesData.filter(function (d) { return projection([d.longitude, d.latitude]) })
+  const rows = markers.filter(function (d) { return projection([d.longitude, d.latitude]) })
 
   const svg = d3n.createSVG(960, 500)
 
@@ -42,7 +40,7 @@ function statesMap ({ geoCSV, radius = defaultRadius, fill = defaultFill, styles
     .attr('d', path)
 
   const circleGroup = svg.selectAll('circle')
-    .data(cities)
+    .data(rows)
     .enter()
     .append('g')
     .attr('transform', function (d) {
@@ -62,3 +60,5 @@ function statesMap ({ geoCSV, radius = defaultRadius, fill = defaultFill, styles
 }
 
 module.exports = statesMap
+module.exports.dsvFormat = d3.dsvFormat
+module.exports.csvParse = d3.csvParse
