@@ -60,5 +60,7 @@ function statesMap ({ markers, radius = defaultRadius, fill = defaultFill, style
 }
 
 module.exports = statesMap
+module.exports.d3 = d3
 module.exports.dsvFormat = d3.dsvFormat
 module.exports.csvParse = d3.csvParse
+module.exports.scaleThreshold = d3.scaleThreshold
